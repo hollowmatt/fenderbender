@@ -7,6 +7,9 @@
 <body>
 
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <p> This is the end</p>
+  <p> ... amost ... </p>
+  <p> Ok, now it is.</p>
 
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
@@ -18,29 +21,57 @@
     }
 
     // Regular
+    console.log("Hello");
 
     // Interpolated
+    console.log("Hello, I am a %s string!", 'poop');
 
     // Styled
-
+    console.log ("I'm some %c great text", 'font-size: 50px; background: red;');
+    
     // warning!
+    console.warn("danger");
 
     // Error :|
+    console.error("Oh my!");
 
     // Info
+    console.info("Hello, info");
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'That is wrong!'); //test a condition, if fails, show msg
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`); //.group will start it open
+      console.log(`this is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('p');
+    console.count('br');
+    console.count('p');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/hollowmatt')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
 
+    //table
+    console.table(dogs);
   </script>
 </body>
 </html>
