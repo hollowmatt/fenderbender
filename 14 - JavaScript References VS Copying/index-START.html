@@ -60,7 +60,11 @@
 
     console.log(matt);
 
+    // shallow copy
     const dev = Object.assign({}, matt);
+
+    // deep copy
+    const dev2 = JSON.parse(JSON.stringify(matt));
 
   </script>
 
